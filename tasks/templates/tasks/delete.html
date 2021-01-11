@@ -1,8 +1,14 @@
-<p>Delete "{{item}}"?</p>
+{% extends 'tasks/main.html' %}
+{% load static %}
+{% block content %}
 
-<a href="{% url 'list' %}">Cancel</a>
+<p>Are you sure you want to delete "{{item}}"?</p>
 
 <form method="POST" action="">
     {% csrf_token %}
-    <input type="submit" name="Confirm">
+    <input class="btn btn-danger" type="submit" name="Confirm">
 </form>
+
+<a class="btn btn-info" href="{% url 'list' %}">Cancel</a>
+
+{% endblock %}
